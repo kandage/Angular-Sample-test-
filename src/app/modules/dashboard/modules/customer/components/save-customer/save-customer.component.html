@@ -1,0 +1,36 @@
+<marquee>Customer Management</marquee>
+<hr>
+<div class="container">
+  <div class="outer" style="width: 100%; display: flex; justify-content: center">
+    <div class="inner" style="width: 500px; border: 1px solid lightseagreen">
+      <br>
+      <form [formGroup]="customerForm">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Customer Id</mat-label>
+          <input type="text" matInput  formControlName="id">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Customer Name</mat-label>
+          <input type="text" matInput  formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Address</mat-label>
+          <input type="text" matInput  formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Salary</mat-label>
+          <input type="number" matInput  formControlName="salary">
+        </mat-form-field>
+
+        <div class="button-outer" style="text-align: right">
+          <button [disabled]="customerForm.invalid" class="btn btn-success" (click)="submitForm()" mat-raised-button color="accent">Submit Data</button>
+        </div>
+        <br>
+      </form>
+    </div>
+  </div>
+</div>

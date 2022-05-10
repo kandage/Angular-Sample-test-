@@ -1,0 +1,54 @@
+<app-loading *ngIf="loadingService.loadingItem | async"></app-loading>
+<!DOCTYPE html>
+<html lang="en" xmlns:style="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Document</title>
+  <link
+    href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+
+
+<body>
+<div class="container">
+  <div class="top-header">
+    <h3>Welcome back</h3>
+    <p>Enter your credentials to access your account</p>
+  </div>
+  <form (ngSubmit)="signUp()" [formGroup]="signUpForm">
+    <div class="user">
+      <i class="bx bxs-user-circle"></i>
+      <input formControlName="email" placeholder="Enter your email" type="text"/>
+      <p *ngIf="signUpForm.get('email')?.invalid" class="alert alert-danger">email is Required</p>
+    </div>
+    <div class="pass">
+      <i class="bx bxs-lock-alt"></i>
+      <input formControlName="password" placeholder="Enter your password" type="password"/>
+      <p *ngIf="signUpForm.get('password')?.invalid" class="alert alert-danger">password is Required</p>
+    </div>
+    <div class="user">
+      <i class="bx bxs-user-circle"></i>
+      <input formControlName="name" placeholder="Enter your username" type="text"/>
+      <p *ngIf="signUpForm.get('name')?.invalid" class="alert alert-danger">Username is Required</p>
+    </div>
+
+    <div class="btn">
+      <button [disabled]="signUpForm.invalid" color="primary" mat-raised-button type="submit">Sign in</button>
+    </div>
+  </form>
+</div>
+<p class="last">Already have an account <a routerLink="/login">Login Now</a></p>
+<!--<script src="/app.js"></script>-->
+</body>
+</html>

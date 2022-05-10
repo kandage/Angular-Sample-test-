@@ -1,0 +1,16 @@
+<h3>parent works!</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <input class="form-control" [(ngModel)]="searchText" placeholder="Type here..." id="" name="" type="text">
+    </div>
+  </div>
+</div>
+<hr>
+<app-children [provideData]="searchText" (textEmitter)="setData($event)"></app-children>
+<hr>
+
+<h3>parent works!</h3>
+<h4 style="color:darkred">
+  Ah Haaa: Data from .....{{importedDataFromChild}}
+</h4>
